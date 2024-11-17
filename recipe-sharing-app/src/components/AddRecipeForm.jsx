@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useRecipeStore } from './recipeStore';
+import { useRecipeStore } from '../recipeStore';
 
 const AddRecipeForm = () => {
   const addRecipe = useRecipeStore((state) => state.addRecipe);
@@ -9,7 +9,7 @@ const AddRecipeForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title || !description) return alert('Please fill in all fields.');
-    addRecipe({ id: Date.now(), title, description });
+    addRecipe({ id: Date.now(), title, description }); // Date.now() generates unique ID
     setTitle('');
     setDescription('');
   };

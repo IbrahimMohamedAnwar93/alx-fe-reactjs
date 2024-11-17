@@ -1,16 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import App from './App';
-import RecipeDetails from './components/RecipeDetails';
+import AddRecipeForm from './components/AddRecipeForm';
+import RecipeList from './components/RecipeList';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
-      </Routes>
-    </Router>
-  </React.StrictMode>
-);
+const App = () => {
+  return (
+    <div>
+      <h1>Recipe Sharing Application</h1>
+      <AddRecipeForm />
+      <RecipeList />
+    </div>
+  );
+};
+
+export default App;

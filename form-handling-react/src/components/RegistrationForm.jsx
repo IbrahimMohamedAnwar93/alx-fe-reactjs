@@ -13,13 +13,23 @@ const RegistrationForm = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simple validation
-    if (!username || !email || !password) {
-      setErrors({
-        username: !username ? "Username is required" : "",
-        email: !email ? "Email is required" : "",
-        password: !password ? "Password is required" : "",
-      });
+
+    // Simple validation for empty fields
+    const validationErrors = {};
+
+    if (!username) {
+      validationErrors.username = "Username is required";
+    }
+    if (!email) {
+      validationErrors.email = "Email is required";
+    }
+    if (!password) {
+      validationErrors.password = "Password is required";
+    }
+
+    // If there are validation errors, set them and stop form submission
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
     } else {
       // Proceed with form submission (e.g., API call)
       console.log("Form submitted:", { username, email, password });

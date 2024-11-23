@@ -1,18 +1,19 @@
 import { useQuery } from "react-query";
 
+// Define the fetchPosts function to handle the API call
+const fetchPosts = async () => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return response.json();
+};
+
 const PostsComponent = () => {
-  // Fetching data from the JSONPlaceholder API
+  // Using React Query's useQuery hook to fetch posts
   const { data, error, isLoading, isError, refetch } = useQuery(
     "posts",
-    async () => {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts"
-      );
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    }
+    fetchPosts
   );
 
   if (isLoading) {

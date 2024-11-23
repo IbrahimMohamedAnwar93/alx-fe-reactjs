@@ -1,12 +1,13 @@
 import React from "react";
-import FormikForm from "./components/formikForm"; // Ensure the import path matches the renamed file
+import FormikForm from "./components/formikForm.jsx";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <FormikForm /> {/* Render the FormikForm component */}
+    <div>
+      <h1>Registration Form with Formik</h1>
+      <FormikForm />
     </div>
   );
-}
+};
 
 export default App;

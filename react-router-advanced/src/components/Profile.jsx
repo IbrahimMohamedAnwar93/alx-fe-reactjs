@@ -2,7 +2,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import ProfileDetails from "./ProfileDetails";
 import ProfileSettings from "./ProfileSettings";
 
-function Profile() {
+function profile() {
   return (
     <div>
       <h2>Profile Page</h2>
@@ -18,4 +18,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default profile;

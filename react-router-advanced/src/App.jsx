@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./components/Home"; // Your home page component
-import Login from "./components/Login"; // Your login page component
-import Profile from "./components/Profile"; // Your profile page component
-import BlogPost from "./components/BlogPost"; // Import the BlogPost component
-import NotFound from "./components/NotFound"; // A 404 page for invalid routes
-import ProtectedRoute from "./components/ProtectedRoute"; // Import the ProtectedRoute component
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Profile from "./components/Profile";
+import BlogPost from "./components/BlogPost";
+import NotFound from "./components/NotFound";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -13,7 +13,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
-        {/* Protected route for the profile */}
         <Route
           path="profile/*"
           element={

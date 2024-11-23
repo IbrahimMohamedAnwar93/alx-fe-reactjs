@@ -1,4 +1,3 @@
-// src/components/Profile.jsx
 import { Routes, Route, Link } from "react-router-dom";
 import ProfileDetails from "./ProfileDetails"; // Make sure this file exists
 import ProfileSettings from "./ProfileSettings"; // Make sure this file exists

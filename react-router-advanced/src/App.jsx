@@ -5,6 +5,7 @@ import Login from "./components/Login"; // Your login page component
 import Profile from "./components/Profile"; // Your profile page component
 import BlogPost from "./components/BlogPost"; // Import the BlogPost component
 import NotFound from "./components/NotFound"; // A 404 page for invalid routes
+import ProtectedRoute from "./components/ProtectedRoute"; // Import the ProtectedRoute component
 
 function App() {
   return (
@@ -12,8 +13,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
-        <Route path="profile/*" element={<Profile />} />
-        <Route path="/blog/:id" element={<BlogPost />} />{" "}
+        <Route
+          path="profile/*"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/blog/:id" element={<BlogPost />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

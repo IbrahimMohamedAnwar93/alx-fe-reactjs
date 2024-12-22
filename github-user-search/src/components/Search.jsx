@@ -5,7 +5,7 @@ const Search = ({ onSearch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSearch(username); // Pass the username to the parent component
+    onSearch(username); // Trigger search in parent component
   };
 
   return (

@@ -31,11 +31,18 @@ function App() {
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
 
+      {/* Display user data if API call is successful */}
       {user && !loading && !error && (
         <div>
-          <h2>{user.name}</h2>
-          <p>{user.bio}</p>
-          <img src={user.avatar_url} alt={user.name} width="100" />
+          <h2>{user.name || user.login}</h2>{" "}
+          {/* Fallback to login if name is missing */}
+          <p>{user.bio || "No bio available"}</p>{" "}
+          {/* Show a default message if no bio */}
+          <img
+            src={user.avatar_url || "https://via.placeholder.com/100"} // Use a placeholder if avatar_url is missing
+            alt={user.name || user.login}
+            width="100"
+          />
           <br />
           <a href={user.html_url} target="_blank" rel="noopener noreferrer">
             View Profile

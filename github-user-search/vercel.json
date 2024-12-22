@@ -1,0 +1,15 @@
+{
+    "builds": [
+      {
+        "src": "path/to/your/project/package.json",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "path/to/your/project/index.html"
+      }
+    ]
+  }
+  

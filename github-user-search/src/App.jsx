@@ -10,36 +10,37 @@ function App() {
 
   const handleSearch = async (username) => {
     setLoading(true);
-    setError("");
-    setUser(null);
+    setError(""); // Reset any previous errors
+    setUser(null); // Reset user data
 
     try {
-      const data = await fetchUserData(username);
-      setUser(data); // Set user data on successful API call
+      const data = await fetchUserData(username); // Fetch user data from GitHub API
+      setUser(data); // Set the user data on success
     } catch (err) {
-      setError("Looks like we can’t find the user"); // Show error if the user is not found
+      setError("Looks like we can’t find the user"); // Set error if user not found
     } finally {
-      setLoading(false); // Stop loading after the API call is finished
+      setLoading(false); // Stop loading after the API call
     }
   };
 
   return (
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
       <h1>GitHub User Search</h1>
-      <Search onSearch={handleSearch} />
-
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-
-      {/* Display user data if API call is successful */}
+      <Search onSearch={handleSearch} />{" "}
+      {/* Pass the search handler to Search component */}
+      {loading && <p>Loading...</p>}{" "}
+      {/* Show loading message while API call is in progress */}
+      {error && <p>{error}</p>}{" "}
+      {/* Show error message if something goes wrong */}
+      {/* Display user data if the API call is successful */}
       {user && !loading && !error && (
         <div>
           <h2>{user.name || user.login}</h2>{" "}
-          {/* Fallback to login if name is missing */}
+          {/* Display name or login if name is missing */}
           <p>{user.bio || "No bio available"}</p>{" "}
-          {/* Show a default message if no bio */}
+          {/* Display bio or fallback message */}
           <img
-            src={user.avatar_url || "https://via.placeholder.com/100"} // Use a placeholder if avatar_url is missing
+            src={user.avatar_url || "https://via.placeholder.com/100"} // Fallback to a placeholder if avatar is missing
             alt={user.name || user.login}
             width="100"
           />

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 
 const Search = ({ onSearch }) => {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(""); // Captures the username input
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSearch(username); // Trigger search in parent component
+    if (username) {
+      onSearch(username); // Pass the username to the parent component (App.jsx)
+    }
   };
 
   return (
@@ -15,7 +17,7 @@ const Search = ({ onSearch }) => {
           type="text"
           placeholder="Enter GitHub username"
           value={username}
-          onChange={(e) => setUsername(e.target.value)} // Capture input value
+          onChange={(e) => setUsername(e.target.value)} // Update state when the user types
         />
         <button type="submit">Search</button>
       </form>
